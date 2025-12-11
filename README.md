@@ -88,7 +88,7 @@ Swagger UI tersedia untuk eksplorasi interaktif endpoint:
 
 1. Clone repo:
    ```bash
-   git clone https://github.com/username/casheex.git
+   git clone https://github.com/fahmirizalbudi/casheex.git
    cd casheex
    ```
 
