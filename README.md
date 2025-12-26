@@ -1,134 +1,78 @@
+<div align="center">
+<a href="https://github.com/fahmirizalbudi/casheex" target="blank">
+<img src="https://raw.githubusercontent.com/JjagoKoding/icon/6a2daacc5ac3dc9ccae1dad4a5f503e55af42c3f/casheex.svg" width="300" alt="Logo" />
+</a>
 
-# 🧾 Casheex
+<br />
+<br />
 
-Casheex adalah RESTful API sederhana untuk sistem kasir, cocok digunakan untuk skala toko retail kecil atau usaha mikro.
+![](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+![](https://img.shields.io/badge/Gin-00A393?style=for-the-badge&logo=gin&logoColor=white)
+![](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
-![Casheex](swagger_docs.png)
+</div>
 
-📍 Live Swagger UI:  
-[https://casheex-production.up.railway.app/swagger/index.html](https://casheex-production.up.railway.app/swagger/index.html)
+<br/>
 
----
+## 🧾 Casheex
 
-## 🚀 Fitur
+Casheex is a simple RESTful API for a casheer system, designed to support basic cashier operations in retail or small business environments. Built in Go and Gin Web Framework, this project was created to learn. This project uses MySQL as the database. Key features include:
 
-- 🔐 **Autentikasi & Autorisasi JWT** – login aman dengan token
-- 🛡️ **Protected Route dengan Middleware** – semua API dilindungi token
-- 🧑‍⚖️ **Role-Based Access Control (RBAC)** – dukungan role `admin` & `kasir`
-- 🔑 **MD5 Password Hash** – penyimpanan password yang terenkripsi
-- 👥 **Manajemen User (CRUD)** – tambah, edit, lihat, dan hapus akun pengguna
-- 📦 **Manajemen Produk (CRUD)** – kelola data produk beserta harga & stok
-- 🛒 **Keranjang Belanja (Cart)** – simpan item sebelum transaksi
-- 💰 **Transaksi Penjualan** – catat penjualan dengan detail
-- 📊 **Perhitungan Laba** – laporan untung/rugi berdasarkan periode
+## ✨ Features
 
+- **🛒 Product Management:** Easily add, update, and track inventory items.
+- **🧾 Transaction Processing:** Handle checkout operations and calculate totals accurately.
+- **📈 Sales History:** Record and retrieve transaction data for business insights.
 
----
+## 👩‍💻 Tech Stack
 
-## 📦 Teknologi
+- **Go**: A statically typed programming language designed for building scalable and high-performance server-side applications.
+- **Gin**: A high-performance web framework for Go, designed for building RESTful APIs and web applications.
+- **MySQL**: A widely used open-source relational database management system for reliable data storage.
 
-- **Golang** + **Gin Web Framework**
-- **Swagger (swaggo)** untuk dokumentasi API
-- **JWT Auth** untuk proteksi endpoint
-- **Godotenv** untuk .env environment
-- **MySQL** sebagai database (tergantung konfigurasi)
+## 📦 Getting Started
 
----
+To get a local copy of this project up and running, follow these steps.
 
-## 🔐 Autentikasi
+### 🚀 Prerequisites
 
-Hampir semua endpoint membutuhkan token JWT. Gunakan endpoint login untuk mendapatkan token dan sertakan dalam header:
+- **Go** (v1.24.x or higher).
+- **MySQL** (or another supported SQL database).
 
-```
-Authorization: Bearer <your_token>
-```
+## 🛠️ Installation
 
-#### ✅ Default Credential (Akun Admin)
-Gunakan akun berikut untuk login ke sistem:
+1. **Clone the repository:**
 
-```
-username: demo
-password: demo
-```
-
-> Kamu bisa mengubah atau menambahkan user baru melalui endpoint `/api/users`.
-
----
-
-## 📚 Dokumentasi Swagger
-
-Swagger UI tersedia untuk eksplorasi interaktif endpoint:
-```
-[GET]    /api/products         -> Get all products
-[POST]   /api/products         -> Create new product (admin) 
-[GET]    /api/products/{id}    -> Get product by ID (admin) 
-[PUT]    /api/products/{id}    -> Update product (admin) 
-[DELETE] /api/products/{id}    -> Delete product (admin) 
-
-[GET]    /api/cart             -> Get cart items  
-[POST]   /api/cart             -> Add item to cart  
-[DELETE] /api/cart/{id}       -> Remove item from cart  
-
-[POST]   /api/transactions     -> Create a transaction  
-[GET]    /api/transactions     -> Get user's transaction history  
-[GET]    /api/transactions/all -> Get all transactions (admin)  
-[GET]    /api/transactions/profit?start_date=...&end_date=... -> Get profit report  
-
-[POST]   /api/users/login      -> Login (get token)  
-[GET]    /api/users            -> Get all users (admin) 
-[POST]   /api/users            -> Create user (admin) 
-[GET]    /api/users/{id}       -> Get user by ID (admin) 
-[PUT]    /api/users/{id}       -> Update user (admin) 
-[DELETE] /api/users/{id}       -> Delete user (admin) 
-```
-
----
-
-## ⚙️ Cara Menjalankan
-
-1. Clone repo:
    ```bash
    git clone https://github.com/fahmirizalbudi/casheex.git
    cd casheex
    ```
 
-2. Buat `.env` atau `config.json` dan atur koneksi database serta secret JWT.
+2. **Install dependencies:**
 
-3. Jalankan server:
+   ```bash
+   go mod tidy
+   ```
+
+3. **Start the development server:**
+
    ```bash
    go run main.go
    ```
 
-4. Generate dokumentasi Swagger (jika perlu):
-   ```bash
-   swag init
-   ```
+## 📖 Usage
 
----
+### ✔ Running the Website
 
-## 🔄 Response Format
+- **Development mode:** `go run main.go`.
+- **Production mode:** `go build main.go && ./main`.
 
-Semua response API berbentuk struktur JSON standar:
+> Use [http://localhost:8080](http://localhost:8080) to test the api in your Postman.
 
-```json
-{
-  "message": "Deskripsi response",
-  "error": null,
-  "data": { ... }
-}
-```
+### 📃 API Documentation
 
----
+The API documentation for this application is available at [http://localhost:8080/api/docs](http://localhost:8080/api/docs). It details all endpoints and their usage.
 
-## 👤 Role Akses
+## 📜 License
 
-| Role      | Fitur Akses                            |
-|-----------|----------------------------------------|
-| Admin     | Semua fitur (user, transaksi, laporan) |
-| Kasir     | Produk, cart, transaksi                |
-
----
-
-## ✨ Kontribusi
-
-Pull request terbuka untuk perbaikan bug, dokumentasi, atau fitur tambahan.
+All rights reserved. This project is for educational purposes only and cannot be used or distributed without permission.
