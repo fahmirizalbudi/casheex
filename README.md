@@ -14,32 +14,32 @@
 
 <br/>
 
-## 🧾 Casheex
+## Casheex
 
-Casheex is a simple RESTful API for a casheer system, designed to support basic cashier operations in retail or small business environments. Built in Go and Gin Web Framework, this project was created to learn. This project uses MySQL as the database. Key features include:
+Casheex is a RESTful API designed for point-of-sale (POS) systems, providing essential backend functionality for retail and small business environments. Developed using the Go programming language and the Gin web framework, this project serves as a technical implementation for managing transactions and inventory with MySQL for persistent data storage.
 
-## ✨ Features
+## Features
 
-- **🛒 Product Management:** Easily add, update, and track inventory items.
-- **🧾 Transaction Processing:** Handle checkout operations and calculate totals accurately.
-- **📈 Sales History:** Record and retrieve transaction data for business insights.
+- **Product and Inventory Management:** Standardized endpoints for cataloging, updating, and tracking inventory items.
+- **Transaction Processing:** Robust logic for handling checkout operations, including automated total calculations.
+- **Sales Reporting:** Structured logging of transaction data to facilitate business analysis and sales history retrieval.
 
-## 👩‍💻 Tech Stack
+## Tech Stack
 
-- **Go**: A statically typed programming language designed for building scalable and high-performance server-side applications.
-- **Gin**: A high-performance web framework for Go, designed for building RESTful APIs and web applications.
-- **MySQL**: A widely used open-source relational database management system for reliable data storage.
+- **Go**: A statically typed, compiled programming language optimized for high-performance concurrent systems.
+- **Gin**: A high-performance HTTP web framework for Go, utilized for its efficiency in building RESTful APIs.
+- **MySQL**: A relational database management system employed for secure and structured data persistence.
 
-## 📦 Getting Started
+## Getting Started
 
-To get a local copy of this project up and running, follow these steps.
+Follow these procedures to deploy a local instance of the Casheex API.
 
-### 🚀 Prerequisites
+### Prerequisites
 
 - **Go** (v1.24.x or higher).
-- **MySQL** (or another supported SQL database).
+- **MySQL** (or a compatible SQL database).
 
-## 🛠️ Installation
+## Installation
 
 1. **Clone the repository:**
 
@@ -48,31 +48,38 @@ To get a local copy of this project up and running, follow these steps.
    cd casheex
    ```
 
-2. **Install dependencies:**
+2. **Initialize Dependencies:**
 
    ```bash
    go mod tidy
    ```
 
-3. **Start the development server:**
+3. **Configure Database:**
+   Ensure your MySQL instance is active and configure the connection string within the application's configuration or environment variables.
+
+4. **Execute the Application:**
 
    ```bash
    go run main.go
    ```
 
-## 📖 Usage
+## Usage
 
-### ✔ Running the Website
+### Execution Modes
 
-- **Development mode:** `go run main.go`.
-- **Production mode:** `go build main.go && ./main`.
+- **Development:** `go run main.go`
+- **Production Build:**
+  ```bash
+  go build -o casheex main.go
+  ./casheex
+  ```
 
-> Use [http://localhost:8080](http://localhost:8080) to test the api in your Postman.
+The API service is hosted locally at [http://localhost:8080](http://localhost:8080).
 
-### 📃 API Documentation
+### API Documentation
 
-The API documentation for this application is available at [http://localhost:8080/api/docs](http://localhost:8080/api/docs). It details all endpoints and their usage.
+Comprehensive endpoint specifications and usage guidelines are accessible via the Swagger/OpenAPI documentation at [http://localhost:8080/api/docs](http://localhost:8080/api/docs).
 
-## 📜 License
+## License
 
-All rights reserved. This project is for educational purposes only and cannot be used or distributed without permission.
+All rights reserved. This project is intended for educational purposes and may not be utilized or distributed without explicit authorization.
